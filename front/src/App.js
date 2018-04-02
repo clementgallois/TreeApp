@@ -24,7 +24,7 @@ class App extends React.Component {
   async initTree() {
     const res = await getLocation();
     if (res.error) {
-      this.setState({ error: res.error });
+      this.setState({ error: `Location: ${res.error}` });
       return;
     }
     const result = await getTree(res.longitude, res.latitude);
