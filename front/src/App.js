@@ -3,30 +3,10 @@ import React from 'react';
 import TreeData from './components/TreeData';
 import Map from './components/Map';
 import Error from './components/Error';
+
+import getLocation from './services/location';
+import getTree from './services/api';
 import './App.css';
-
-
-function getCurrentLocation(options) {
-  return new Promise((resolve, reject) => {
-    navigator.geolocation.getCurrentPosition(
-      resolve, reject,
-      options,
-    );
-  });
-}
-
-async function getLocation() {
-  try {
-    const res = await getCurrentLocation({
-      enableHighAccuracy: false,
-      timeout: 5000,
-    });
-    return { longitude: res.coords.longitude, latitude: res.coords.latitude };
-  } catch (err) {
-    return { error: err.message };
-  }
-}
-
 
 class App extends React.Component {
   constructor(props) {
@@ -34,34 +14,28 @@ class App extends React.Component {
     this.state = {
       error: null,
     };
-    this.getTree = this.getTree.bind(this);
+    this.initTree = this.initTree.bind(this);
   }
 
   componentDidMount() {
-    this.getTree();
+    this.initTree();
   }
 
-  async getTree() {
+  async initTree() {
     const res = await getLocation();
     if (res.error) {
       this.setState({ error: res.error });
       return;
     }
-    const request = new Request('http://localhost:8080/tree', {
-      method: 'POST',
-      headers: new Headers({
-        'Content-Type': 'application/json',
-      }),
-      body: JSON.stringify({
-        longitude: res.longitude,
-        latitude: res.latitude,
-      }),
-    });
-    const result = await fetch(request).then(response => response.json()).catch(error => error);
-    this.setState({
-      tree: result.tree,
-      user: { lat: res.latitude, lng: res.longitude },
-    });
+    const result = await getTree(res.longitude, res.latitude);
+    if (!result.success) {
+      this.setState({ error: result.message });
+    } else {
+      this.setState({
+        tree: result.tree,
+        user: { lat: res.latitude, lng: res.longitude },
+      });
+    }
   }
 
   closeError() {

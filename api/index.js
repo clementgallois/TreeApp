@@ -61,7 +61,7 @@ if (importFile){
 }
 
 var corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: `http://${config.webapp.address}:${config.webapp.port}`,
   optionsSuccessStatus: 200
 };
 app.use(cors(corsOptions));

@@ -7,5 +7,9 @@ module.exports = {
   app:{
     'address': 'localhost',
     'port': 8080
+  },
+  webapp:{
+    'address': 'localhost',
+    'port': 3000
   }
 };
