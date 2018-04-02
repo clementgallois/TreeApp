@@ -1,0 +1,36 @@
+
+.ListContainer{
+  width:25%;
+  min-width: 260px;
+  display:flex;
+  flex-direction: column;
+}
+.List{
+border: 1px solid gray;
+border-radius: 5px;
+overflow-y: auto;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+  margin:0;
+  padding:0;
+  list-style-type: none;
+}
+
+.ItemName{
+  font-weight: bold;
+}
+
+.ItemValue{
+  font-size: 0.7em;
+  margin-left: 5px;
+  float:right;
+}
+
+.ListItem{
+padding:1px;
+  padding-right: 10px;
+    padding-left: 10px;
+}
+
+.ListItem:hover{
+  background-color: #efefef;
+}

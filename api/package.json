@@ -1,0 +1,30 @@
+{
+  "name": "treeapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clementgallois/TreeApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clementgallois/TreeApp/issues"
+  },
+  "homepage": "https://github.com/clementgallois/TreeApp#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "csvtojson": "^1.1.9",
+    "express": "^4.16.3",
+    "minimist": "^1.2.0",
+    "mongoose": "^5.0.12"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1"
+  }
+}

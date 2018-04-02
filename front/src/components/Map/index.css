@@ -1,0 +1,16 @@
+
+.MapContainer{
+  width:75%;
+  height:100%;
+  border: 1px solid gray;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+  margin-right:25px;
+  overflow: hidden;
+}
+
+.Marker{
+  position:absolute;
+  transform: translate(-50%, -50%);
+  height:40px;
+}
