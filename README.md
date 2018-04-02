@@ -81,3 +81,10 @@ Easy way to serve:
 $ npm install -g serve
 $ serve -p [port] [build_folder] 
 ```
+
+
+# Conclusion
+
+Ran out of time in the implement the responsive design better, it currently is a little bit rushed.
+I also wanted to implement filters to get the closest tree using params (closest tree alive/dead, closest healthy tree etc..)
+but again ran out of time for that.
