@@ -8,13 +8,13 @@ html, body, #root{
 .App {
   height:100%;
   width:100%;
+  display:flex;
 }
 
 .App.Large {
   height:70%;
   width:70%;
   margin:auto;
-  display:flex;
 }
 
 .AppContainer{

@@ -61,6 +61,11 @@ class App extends React.Component {
         <MediaQuery minDeviceWidth={1224}>
           {matches => (
             <div className={`App ${matches && 'Large'}`}>
+              {this.state.tree && this.state.user && <Map
+                tree={this.state.tree}
+                user={this.state.user}
+                large={matches}
+              />}
               {!matches &&
                 <div className="menuBar">
                   <button
@@ -72,11 +77,6 @@ class App extends React.Component {
                     <div />
                   </button>
                 </div>}
-              {this.state.tree && this.state.user && <Map
-                tree={this.state.tree}
-                user={this.state.user}
-                large={matches}
-              />}
               {this.state.tree && <TreeData
                 tree={this.state.tree}
                 large={matches}
