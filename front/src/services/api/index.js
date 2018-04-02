@@ -1,7 +1,7 @@
 import config from '../../config';
 
 async function getTree(longitude, latitude) {
-  const request = new Request(`http://${config.api.address}:${config.api.address}/tree`, {
+  const request = new Request(`http://${config.api.address}:${config.api.port}/tree`, {
     method: 'POST',
     headers: new Headers({
       'Content-Type': 'application/json',
