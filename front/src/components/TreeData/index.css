@@ -1,20 +1,33 @@
 
 .ListContainer{
-  width:25%;
-  min-width: 260px;
+  width:100%;
   display:flex;
   flex-direction: column;
+  background-color: white;
+  position:absolute;
+  top:0;
+  transition: width 0.3s;
+  right:0;
 }
+
+.ListContainer.Large{
+  position: inherit;
+  width:25%;
+  min-width: 260px;
+}
+
 .List{
-border: 1px solid gray;
-border-radius: 5px;
-overflow-y: auto;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+  overflow-y: auto;
   margin:0;
   padding:0;
   list-style-type: none;
 }
 
+.List.Large{
+  border: 1px solid gray;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+}
 .ItemName{
   font-weight: bold;
 }
@@ -26,11 +39,22 @@ overflow-y: auto;
 }
 
 .ListItem{
-padding:1px;
-  padding-right: 10px;
-    padding-left: 10px;
+  padding:1px;
+  padding-right:
+  10px;padding-left: 10px;
 }
 
 .ListItem:hover{
   background-color: #efefef;
+}
+
+.closeButton{
+  position:absolute;
+  top:0;
+  right:0;
+  font-size: 2em;
+  border: 0;
+  background: none;
+  box-shadow: none;
+  border-radius: 0px;
 }

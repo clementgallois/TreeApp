@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import GoogleMap from 'google-map-react';
 import { fitBounds } from 'google-map-react/utils';
 
+
 import './index.css';
 
 const Tree = () => (
@@ -51,11 +52,11 @@ class Map extends React.Component {
   render() {
     return (
       <div
-        className="MapContainer"
+        className={`MapContainer ${this.props.large && 'Large'}`}
         ref={(map) => { this.mapRef = map; }}
       >
         <GoogleMap
-        // v 3.30 to avoid marker loading from corner when zooming
+          // v 3.30 to avoid marker loading from corner when zooming
           bootstrapURLKeys={{ v: '3.30', key: 'AIzaSyCvGxn7SPRrtdMV-QHUqfIYUqDWR5NzIh4' }}
           center={this.state.center}
           zoom={this.state.zoom}
@@ -79,9 +80,11 @@ Map.propTypes = {
     latitude: PropTypes.number,
     longitude: PropTypes.number,
   }),
+  large: PropTypes.bool,
 };
 
 Map.defaultProps = {
+  large: true,
   user: null,
   tree: null,
 };

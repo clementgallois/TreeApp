@@ -6,15 +6,36 @@ html, body, #root{
 }
 
 .App {
+  height:100%;
+  width:100%;
+}
+
+.App.Large {
   height:70%;
   width:70%;
   margin:auto;
   display:flex;
-
 }
 
 .AppContainer{
   height:100%;
   display: flex;
   flex-direction: column;
+}
+.menuButton{
+  float:right;
+  border: 0;
+  background: none;
+  box-shadow: none;
+  border-radius: 0px;
+}
+
+.menuBar{
+  height:44px;
+}
+.menuButton>div{
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
 }

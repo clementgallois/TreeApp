@@ -1,7 +1,10 @@
 
 .MapContainer{
-  width:75%;
+  width:100%;
   height:100%;
+}
+
+.MapContainer.Large{
   border: 1px solid gray;
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);

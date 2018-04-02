@@ -1,4 +1,5 @@
 import React from 'react';
+import MediaQuery from 'react-responsive';
 
 import TreeData from './components/TreeData';
 import Map from './components/Map';
@@ -13,8 +14,11 @@ class App extends React.Component {
     super(props);
     this.state = {
       error: null,
+      open: false,
     };
     this.initTree = this.initTree.bind(this);
+    this.closePanel = this.closePanel.bind(this);
+    this.openPanel = this.openPanel.bind(this);
   }
 
   componentDidMount() {
@@ -42,17 +46,45 @@ class App extends React.Component {
     this.setState({ error: null });
   }
 
+  closePanel() {
+    this.setState({ open: false });
+  }
+
+  openPanel() {
+    this.setState({ open: true });
+  }
+
   render() {
     return (
       <div className="AppContainer">
         {this.state.error && <Error message={this.state.error} onClose={this.closeError} />}
-        <div className="App">
-          {this.state.tree && this.state.user && <Map
-            tree={this.state.tree}
-            user={this.state.user}
-          />}
-          {this.state.tree && <TreeData tree={this.state.tree} />}
-        </div>
+        <MediaQuery minDeviceWidth={1224}>
+          {matches => (
+            <div className={`App ${matches && 'Large'}`}>
+              {!matches &&
+                <div className="menuBar">
+                  <button
+                    className="menuButton"
+                    onClick={this.openPanel}
+                  >
+                    <div />
+                    <div />
+                    <div />
+                  </button>
+                </div>}
+              {this.state.tree && this.state.user && <Map
+                tree={this.state.tree}
+                user={this.state.user}
+                large={matches}
+              />}
+              {this.state.tree && <TreeData
+                tree={this.state.tree}
+                large={matches}
+                open={this.state.open}
+                close={this.closePanel}
+              />}
+            </div>)}
+        </MediaQuery>
       </div>);
   }
 }
