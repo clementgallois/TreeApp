@@ -1,6 +1,12 @@
 # TreeApp
 WinIt code challenge
 
+
+
+# Requirements
+
+You need Node 8.10.0 and mongodb 3.4.10 to run this
+
 # Api
 
 ### Install
